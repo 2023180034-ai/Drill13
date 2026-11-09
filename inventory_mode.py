@@ -6,6 +6,7 @@ image = None
 
 def init():
     global image
+    game_framework.stack[-2].boy.clear_movement_input()
     image = load_image('item_select.png')
 
 
