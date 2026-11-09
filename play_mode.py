@@ -4,6 +4,7 @@ import game_world
 from boy import Boy
 from grass import Grass
 import pause_mode
+import inventory_mode
 import title_mode
 
 
@@ -16,6 +17,9 @@ def handle_events():
             game_framework.change_mode(title_mode)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
             game_framework.push_mode(pause_mode)
+            return
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
+            game_framework.push_mode(inventory_mode)
             return
         else:
             boy.handle_event(event)
