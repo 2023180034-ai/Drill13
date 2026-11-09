@@ -18,10 +18,7 @@ def handle_events():
     for event in get_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
-        elif (event.type in (SDL_KEYDOWN, SDL_KEYUP) and
-              event.key in (SDLK_LEFT, SDLK_RIGHT)):
-            game_framework.stack[-2].boy.handle_event(event)
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.pop_mode()
 
 
