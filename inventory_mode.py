@@ -19,9 +19,11 @@ def handle_events():
     for event in get_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+        elif (event.type == SDL_KEYDOWN and
+              event.key in (SDLK_ESCAPE, SDLK_i)):
             game_framework.pop_mode()
-        elif event.type == SDL_KEYDOWN:
+        elif (event.type == SDL_KEYDOWN and
+              event.key in (SDLK_0, SDLK_1, SDLK_2)):
             boy = game_framework.stack[-2].boy
             if event.key == SDLK_0:
                 boy.ball_size = None
@@ -29,6 +31,7 @@ def handle_events():
                 boy.ball_size = 21
             elif event.key == SDLK_2:
                 boy.ball_size = 41
+            game_framework.pop_mode()
 
 
 def update():
