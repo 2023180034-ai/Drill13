@@ -23,7 +23,7 @@ def handle_events():
 
 
 def update():
-    pass
+    game_framework.stack[-2].update()
 
 
 def render():
